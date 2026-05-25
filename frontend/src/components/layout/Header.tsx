@@ -15,7 +15,7 @@ const pageTitles: Record<string, string> = {
 export function Header() {
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
-  const title = pageTitles[pathname || "/"] || "Agentic Quant Researcher";
+  const title = pageTitles[pathname || "/"] || "AI Quant Researcher";
 
   return (
     <header className="flex h-14 items-center justify-between border-b border-border bg-card px-6">

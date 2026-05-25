@@ -102,7 +102,7 @@ def run_strategy_eval():
 
 
 async def main():
-    print("AGENTIC QUANT RESEARCHER — EVALUATION SUITE")
+    print("AI QUANT RESEARCHER — EVALUATION SUITE")
     print("=" * 60)
 
     retrieval_results = run_retrieval_eval()

@@ -109,7 +109,7 @@ export default function HomePage() {
                 without the institution.
               </h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                The Agentic Quant Researcher ingests 10-K filings, earnings
+                The AI Quant Researcher ingests 10-K filings, earnings
                 transcripts, and live pricing data. It routes your questions to
                 specialized AI agents that work in parallel, then synthesizes
                 their findings into a single actionable report with confidence
@@ -456,7 +456,7 @@ export default function HomePage() {
               className="rounded-md"
             />
             <span className="text-sm font-semibold">
-              Agentic Quant Researcher
+              AI Quant Researcher
             </span>
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-muted-foreground">

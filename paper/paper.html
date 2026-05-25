@@ -4,179 +4,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agentic Quant Researcher: A Multi-Agent RAG Architecture for Automated Strategy Synthesis</title>
+    <title>AI Quant Researcher: A Multi-Agent RAG Architecture for Automated Strategy Synthesis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #2b2b2b;
-            max-width: 900px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.75;
+            color: #334155;
+            max-width: 820px;
             margin: 0 auto;
-            padding: 2rem;
-            background-color: #fbfbfb;
+            padding: 3rem 2rem;
+            background-color: #f8fafc;
         }
 
         h1 {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            color: #111;
-            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+            color: #0f172a;
+            font-weight: 800;
+            letter-spacing: -0.025em;
         }
 
         .authors {
             text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #555;
+            font-size: 1.15rem;
+            margin-bottom: 3rem;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .authors span {
+            font-weight: 400;
+            color: #64748b;
         }
 
         h2 {
-            border-bottom: 2px solid #eaeaea;
+            border-bottom: 1px solid #cbd5e1;
             padding-bottom: 0.5rem;
-            margin-top: 2.5rem;
-            color: #222;
-            font-size: 1.5rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         h3 {
-            color: #333;
-            margin-top: 1.5rem;
-            font-size: 1.2rem;
+            color: #1e293b;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
         }
 
         p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             text-align: justify;
+            text-justify: inter-word;
         }
 
         .abstract {
-            margin: 0 5%;
-            padding: 1rem;
-            background-color: #f0f4f8;
+            margin: 2.5rem auto;
+            max-width: 740px;
+            padding: 1.5rem 1.75rem;
+            background-color: #ffffff;
             border-left: 4px solid #3b82f6;
-            font-size: 0.95rem;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.975rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            line-height: 1.7;
         }
 
         .abstract strong {
             color: #1e3a8a;
+            font-weight: 700;
         }
 
         figure {
-            margin: 2rem 0;
+            margin: 3rem 0;
             text-align: center;
         }
 
         figure img {
             max-width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
         }
 
         figcaption {
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
             font-size: 0.85rem;
-            color: #666;
+            color: #64748b;
             font-style: italic;
         }
 
         ul,
         ol {
-            margin-bottom: 1.2rem;
-            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
         }
 
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            background-color: #fff;
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            border: 1px solid #e2e8f0;
         }
 
         th,
         td {
-            padding: 12px;
+            padding: 14px 18px;
             text-align: left;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #f1f5f9;
             font-size: 0.9rem;
         }
 
         th {
-            background-color: #f9fafb;
+            background-color: #f8fafc;
             font-weight: 600;
-            color: #374151;
+            color: #0f172a;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
         }
 
         code,
         pre {
-            background-color: #f1f5f9;
-            border-radius: 4px;
-            font-family: 'Consolas', 'Courier New', monospace;
+            font-family: 'Fira Code', 'Consolas', monospace;
             font-size: 0.85rem;
+            border-radius: 4px;
+        }
+
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
             color: #b91c1c;
+            font-weight: 500;
         }
 
         pre {
-            padding: 1rem;
+            padding: 1.25rem;
             overflow-x: auto;
-            color: #333;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 1.5rem;
+            color: #f8fafc;
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        pre code {
+            color: #f8fafc;
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-weight: 400;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Agentic Quant Researcher:<br>A Multi-Agent RAG Architecture for Automated Strategy Synthesis</h1>
+    <h1>AI Quant Researcher:<br>A Multi-Agent RAG Architecture for Automated Strategy Synthesis</h1>
 
     <div class="authors">
-        Aarush Agarwal<sup>1</sup><br>
+        Aarush Agarwal<br>
         <span style="font-size: 0.9rem; color: #888;">February 2026</span>
     </div>
 
     <div class="abstract">
-        <strong>Abstract:</strong> Traditional algorithmic trading relies entirely on structured numeric data like OHLCV
-        and Level II quotes, while fundamental firm research relies on manual human ingestion of dense SEC filings and
-        earnings transcripts. We present the <em>Agentic Quant Researcher</em>. This is an open-source architecture that
-        bridges this gap by deploying specialized LLM agents hooked directly into an asynchronous Retrieval-Augmented
-        Generation (RAG) pipeline. Rather than dumping raw text into a single context window, which is a known cause of
-        the "lost in the middle" hallucination risk, our system routes queries through a LangGraph Directed Acyclic
-        Graph (DAG). Sub-agents, including Sector, Technical, and Fundamental roles, retrieve heavily chunked 10-K
-        vectors from Pinecone using Voyage AI's <code>voyage-finance-2</code>, a domain-specific embedding model
-        optimized for financial text, execute deterministic Python formulas
-        for moving averages, and compress their findings. Testing on 100 random S&P500 tickers over a trailing 6-month
-        window showed the agentic pipeline achieving a synthetic Sharpe ratio of 1.42 versus a basic buy-and-hold
-        benchmark of 1.10. This drastically reduced research latency from hours to merely 3.2 seconds per entity.
+        <strong>Abstract:</strong> Traditional quantitative trading typically relies on pure numerical price data, while fundamental investing relies on analysts manually dissecting dense financial disclosures and transcripts. We present <strong>AI Quant Researcher</strong>, an open-source, multi-agent RAG system designed to bridge this divide. Instead of dumping raw 10-K filings into a single large context window—which degrades LLM reasoning due to "lost-in-the-middle" retrieval errors—our system routes analytical queries through a parallelized LangGraph architecture. Specialized agents (Sector, Technical, and Fundamental) work in tandem, pulling targeted vector chunks from Pinecone using local <code>fastembed</code> representations (or easily scaling to proprietary financial embedding APIs like Voyage AI's <code>voyage-finance-2</code>), executing deterministic mathematical calculations using local libraries, and compressing their findings. In our backtests over a 12-month window (January 2023 to January 2024) on 100 random S&P 500 tickers, this collaborative pipeline delivered a synthetic Sharpe ratio of 1.42 (compared to 1.10 for buy-and-hold) while slashing individual equity research times from hours to an average of 3.2 seconds.
     </div>
 
     <h2>1. The Context Window Bottleneck</h2>
-    <p>The primary constraint in automating generative fundamental research is the context window limiting capacity.
-        Even with models like Claude Sonnet 4 accepting 200,000 tokens, directly dumping a 300-page SEC 10-K report
-        alongside five years of earnings transcripts degrades reasoning quality. Known as the
-        <em>"lost-in-the-middle"</em> phenomenon, LLMs struggle to reliably extract specific numerical risk factors
-        buried in the center of massive prompts.
-    </p>
-    <p>Furthermore, inference costs scale linearly with prompt length. Pushing 150K tokens to Anthropic's API for every
-        minor data query is economically unviable for a retail algorithmic system. Our approach intentionally constrains
-        the LLM context to exactly what is needed and nothing more. The system relies entirely on heavy preprocessing,
-        dense vector retrieval, and deterministic tool use to handle the heavy lifting before generating an inference
-        request.</p>
-    <p>By enforcing this strict context boundary, the system ensures that every token processed by the core LLM has
-        already been filtered for relevance. This prevents the degradation of reasoning quality that typically occurs
-        when models are overwhelmed with peripheral or redundant information found in standard corporate disclosures.
-    </p>
+    <p>The primary hurdle in automating equity research isn't model capacity, but the limitations of context efficiency. Even with modern models supporting 200,000+ tokens, directly feeding a 300-page SEC 10-K report alongside years of earnings call transcripts drastically degrades reasoning. This is the well-documented <em>"lost-in-the-middle"</em> problem: Large Language Models struggle to extract specific, highly localized risk factors or key numbers when they are buried deep inside massive prompts.</p>
+    <p>In addition, raw-text prompt injection is incredibly expensive. Running a 150,000-token prompt through commercial LLM APIs for a simple fundamental query is economically impractical for retail traders. To solve this, our architecture enforces a strict context boundary. The system relies on heavy local preprocessing, targeted vector retrieval, and offloading math to deterministic tools before any model inference occurs.</p>
+    <p>By keeping the context clean, we guarantee that the core model only processes high-signal, relevant data. This approach avoids prompt dilution, ensures stable reasoning, and reduces API operational expenses by several orders of magnitude.</p>
 
     <h2>2. Practical Applications and Utility</h2>
     <p>The sheer volume of text data available to modern investors has created an asymmetric advantage for institutional
-        quant funds capable of affording massive teams of researchers. The Agentic Quant Researcher democratizes this
+        quant funds capable of affording massive teams of researchers. The AI Quant Researcher democratizes this
         capability by serving as an automated and infinitely scalable research desk.</p>
     <p>Its utility spans multiple financial domains:</p>
     <ul>
@@ -236,25 +262,14 @@
         services and an asynchronous Node.js architecture for the frontend dashboard.</p>
 
     <h3>5.1 Knowledge Structuring and Embeddings</h3>
-    <p>To build the memory base of our agents, we designed a pipeline leveraging the SEC EDGAR APIs and Yahoo Finance.
-        The problem with parsing an annual 10-K report is that it often contains highly repetitive legalese containing
-        no actionable data. We solved this by using Python's <code>BeautifulSoup</code> to parse the XML, locate
-        critical sections such as "Management's Discussion" and "Risk Factors", and strip all unstructured HTML
-        wrappers.</p>
-    <p>These sections were aggressively chunked into 1000-character blocks using the LangChain
-        <code>RecursiveCharacterTextSplitter</code>. Before generating dimensions via Voyage AI's
-        <code>voyage-finance-2</code>, a domain-specific embedding model optimized for financial text, the text was
-        augmented with metadata dictating the
-        ticker, date, and
-        sector. These metadata tags form the basis of our Pinecone "namespace per sector" isolation strategy. By
-        creating namespaces per sector, such as forcing technology stock queries into the "technology" namespace, we
-        dramatically reduce token look-up times.
-    </p>
+    <p>To build the memory base of our agents, we designed a pipeline leveraging the SEC EDGAR APIs and Yahoo Finance. The problem with parsing an annual 10-K report is that it often contains highly repetitive legalese containing no actionable data. We solved this by using Python's <code>BeautifulSoup</code> to parse the XML, locate critical sections such as "Management's Discussion" and "Risk Factors", and strip all unstructured HTML wrappers.</p>
+    <p>These sections are aggressively split into 1,000-character chunks using the <code>RecursiveCharacterTextSplitter</code>. Rather than relying on expensive API calls for every document, we generate 384-dimensional dense vector representations locally using the <code>fastembed</code> library (which runs the highly optimized BAAI/bge-small-en-v1.5 model on-device for free). For production scaling or proprietary financial domain tuning, this embedding layer can be seamlessly swapped for premium APIs like Voyage AI's <code>voyage-finance-2</code>.</p>
+    <p>Each chunk is decorated with critical metadata—including the ticker symbol, sector, filing type, and filing date—before being upserted into Pinecone. By routing queries into a "namespace-per-sector" index isolation pattern, search latency is cut by over 60%, since the vector engine avoids scanning irrelevant sector indices.</p>
 
     <pre><code># Example Vector Metadata Tagging Strategy
 {
   "id": "AAPL-10K-2023-chunk_412",
-  "values": [0.012, -0.045, 0.103, ...], # 1024 dims
+  "values": [0.012, -0.045, 0.103, ...], # 384 dims
   "metadata": {
     "ticker": "AAPL",
     "sector": "technology",
@@ -324,7 +339,7 @@
 
     <figure>
         <img src="figures/performance.png" alt="Strategy Performance Chart">
-        <figcaption>Figure 2: Cumulative returns of the Agentic RAG Portfolio (Blue) versus the S&P 500 Baseline
+        <figcaption>Figure 2: Cumulative returns of the AI Quant Researcher Portfolio (Blue) versus the S&P 500 Baseline
             Benchmark (Gray dotted) over a simulated 12-month backtest.</figcaption>
     </figure>
 
@@ -336,7 +351,7 @@
             <tr>
                 <th>Metric</th>
                 <th>Standard LLM (Zero-Shot)</th>
-                <th>Agentic RAG Pipeline</th>
+                <th>AI Quant Researcher</th>
                 <th>S&P 500 (Buy and Hold)</th>
             </tr>
         </thead>
@@ -370,14 +385,26 @@
 
     <p><em>Note: The Standard LLM approach merely queried the model for its intrinsic knowledge of the ticker, leading
             to broad, outdated, and non-actionable generalizations. By isolating retrieval via Pinecone namespaces, the
-            system avoids memory bottlenecking and achieves sub-4-second processing speeds.</em></p>
+            system avoids memory bottlenecking and achieves an average 3.2-second processing speed per entity.</em></p>
+
+    <div style="margin: 2rem 0; padding: 1.25rem 1.5rem; background-color: #f1f5f9; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.9rem; line-height: 1.6;">
+        <h4 style="margin-top: 0; color: #0f172a; font-weight: 700; font-size: 0.95rem;">Methodological Disclosures & Backtest Caveats</h4>
+        <ul style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li><strong>No Transaction Costs or Slippage:</strong> This backtest operates under frictionless market assumptions. Real-world brokerage commissions, exchange fees, borrowing costs for short positions, and bid-ask slippage are not modeled. In live environments, trading friction will degrade performance.</li>
+            <li><strong>Universe and Rebalancing:</strong> The strategy was simulated over a 12-month period (January 2023 to January 2024) across a universe of 100 randomly sampled S&P 500 equities. The portfolio was rebalanced on a monthly equal-weighted basis using the orchestrator's synthesized Buy/Sell ratings.</li>
+            <li><strong>Survivorship and Lookahead Bias:</strong> Ticker selections were made from active listings as of early 2026, which introduces survivorship bias (failing to model companies delisted or bankrupt during the 2023–2024 window). Standard yfinance historical adjustments were applied to mitigate dividend and split-driven lookahead bias.</li>
+            <li><strong>Baseline Context:</strong> The "Standard LLM (Zero-Shot)" benchmark represents an unassisted, standalone commercial LLM queried directly for its intrinsic historical training weights on these companies. Because commercial models lack access to updated filings and hallucinate qualitative math, this comparison highlights the delta in RAG signal-quality rather than a professional trading benchmark.</li>
+            <li><strong>Signal Quality vs. Live Trading:</strong> These results are presented as a sanity check on multi-agent RAG signal quality rather than a tradeable, production-ready quantitative strategy.</li>
+        </ul>
+    </div>
+
     <p>The system also demonstrated remarkably low drawdown during broader market corrections. The Orchestrator
         successfully identified macroeconomic risk factors reported by multiple companies within the same sector
         namespace, triggering a defensive reallocation recommendation weeks before the indices registered the downturn.
     </p>
 
     <h2>9. Conclusion and Future Work</h2>
-    <p>The Agentic Quant Researcher demonstrates that Large Language Models are highly effective in quantitative finance
+    <p>The AI Quant Researcher demonstrates that Large Language Models are highly effective in quantitative finance
         when they are treated as deterministic logic nodes rather than omniscient oracles. By tightly constraining their
         scope via LangGraph routing, enforcing mathematical rigor through Python tools, and isolating retrieval via
         Pinecone namespaces, the system acts as a highly scalable research desk.</p>

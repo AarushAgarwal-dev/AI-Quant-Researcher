@@ -18,7 +18,7 @@ async def lifespan(app: FastAPI):
 settings = get_settings()
 
 app = FastAPI(
-    title="Agentic Quant Researcher",
+    title="AI Quant Researcher",
     description="Multi-agent RAG system for quantitative research",
     version="0.1.0",
     lifespan=lifespan,

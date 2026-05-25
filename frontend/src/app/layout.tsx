@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Agentic Quant Researcher",
+  title: "AI Quant Researcher",
   description: "Multi-agent AI system for quantitative equity research — reads SEC filings, computes technical indicators, and synthesizes actionable trading strategies.",
   icons: {
     icon: "/favicon.ico",
